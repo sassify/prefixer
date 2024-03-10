@@ -29,7 +29,28 @@ npm install --save-dev @sassify/prefixer
 
 ```scss
 // _styles.scss
+.card {
 
+	color: #212121;
+	background: #fff;
+
+	@include sassify.prefixer(
+		box-shadow,
+		rgba(149, 157, 165, 0.2) 0px 8px 24px,
+		webkit moz
+	);
+
+}
+```
+```css
+/* styles.css */
+.card {
+  color: #212121;
+  background: #fff;
+  -webkit-box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  -moz-box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
 ```
 
 > Весь код Sassify Prefixer задокументирован с помощью комментариев SassDoc. Документация доступна по [этой](https://sassify.github.io/prefixer/) ссылке.

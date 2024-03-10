@@ -1,0 +1,78 @@
+@use '../configs' as configs;
+@use 'add-prefixes-to-property' as *;
+@use 'add-prefixes-to-value' as *;
+
+/// @ignore Миксин `add-prefixes` не является
+/// 	публичным и используется только в миксинах
+/// 	для добавления браузерных префиксов!
+/// ---
+/// @name add-prefixes
+/// @access private
+/// @since 10.03.24
+/// @author Haba Kudzaev (therteenten)
+/// @output CSS-свойства или значения с добавленными браузерными префиксами
+/// @param {string} $property - CSS-свойство, к которому
+/// 	будут добавлены браузерные префиксы из списка `$prefixes`,
+/// 	если параметр `$is-add-prefix-to-value` будет **деактивирован**
+/// @param {string | number | list} $value - значение CSS-свойства
+/// 	из `$property`, к которому будут добавлены браузерные префиксы
+/// 	из списка `$prefixes`, если параметр `$is-add-prefix-to-value`
+/// 	будет **активирован**
+/// @param {list} $prefixes - список браузерных префиксов,
+/// 	которые будут добавлены к CSS-свойству `$property` или
+/// 	к его значению `$value` в зависимости от значения
+/// 	параметра `$is-add-prefix-to-value`
+/// @param {boolean} $is-save-origin [true] - параметр отвечает за
+/// 	сохранение CSS-свойства или значения без добавленного
+/// 	браузерного префикса
+/// @param {boolean} $is-add-prefix-to-value [false] - параметр отвечает
+/// 	за то, чтобы миксин добавлял браузерные префиксы к значению,
+/// 	а не к CSS-свойству
+@mixin add-prefixes(
+	$property,
+	$value,
+	$prefixes: (),
+	$is-save-origin: true,
+	$is-add-prefix-to-value: false) {
+
+	// Если в параметр `$prefixes` [list] передано значение
+	// `all` [string], то к CSS-свойству или к значению
+	// будут добавлены все известные браузерные префиксы:
+	@if $prefixes == 'all' {
+
+		// Если параметру `$is-add-prefix-to-value` [boolean]
+		// передано значение `true`, то префиксы из списка
+		// `$set-all-prefixes` [list] будут добавлены
+		// к значению `$value` [string | number | list], а иначе
+		// браузерные префиксы будут добавлены к CSS-свойству
+		// `$property` [string]:
+		@if $is-add-prefix-to-value == true {
+			@include add-prefixes-to-value($property, $value, configs.$set-all-prefixes);
+		} @else {
+			@include add-prefixes-to-property($property, $value, configs.$set-all-prefixes);
+		}
+
+	}
+
+	// Если в параметр `$prefixes` [list] передан список префиксов,
+	// то с помощью цикла `@each` проходим по списку `$prefixes` [list]
+	// и на каждой итерации добавляем к CSS-свойству или к его значению
+	// браузерный префикс:
+	@else {
+
+		@if $is-add-prefix-to-value == true {
+			@include add-prefixes-to-value($property, $value, $prefixes);
+		} @else {
+			@include add-prefixes-to-property($property, $value, $prefixes);
+		}
+
+	}
+
+	// Если параметру `$is-save-origin` [boolean]
+	// передано значение `true`, то сохраняем CSS-свойство
+	// или значение без добавленного браузерного префикса:
+	@if $is-save-origin == true {
+		#{$property}: #{$value};
+	}
+
+}

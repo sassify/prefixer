@@ -1,0 +1,10 @@
+////
+/// @access public
+////
+
+/// Список всех известных браузерных префиксов
+/// ---
+/// @name set-all-prefixes
+/// @since 10.03.24
+/// @type List
+$set-all-prefixes: webkit khtml moz ms o !default;

@@ -1,0 +1,47 @@
+@use 'private/add-prefixes' as *;
+
+/// Миксин `prefixer` позволяет добавить к CSS-свойству
+/// необходимые браузерные префиксы.
+/// ---
+/// @name prefixer
+/// @access public
+/// @since 10.03.24
+/// @author Haba Kudzaev (therteenten)
+/// @example scss Пример использования в Sass (SCSS)
+/// 	@use 'node_modules/@sassify/prefixer' as sassify;
+///
+/// 	.class {
+/// 		@include sassify.prefixer(border-radius, 8px, webksit moz);
+/// 	}
+/// @example css Результат компиляции Sass в CSS
+/// 	.class {
+/// 		-webksit-border-radius: 8px;
+/// 		-moz-border-radius: 8px;
+/// 		border-radius: 8px;
+/// 	}
+/// @output CSS-свойства с добавленными браузерными префиксами
+/// @param {string} $property - CSS-свойство, к которому
+/// 	будут добавлены браузерные префиксы из списка `$prefixes`
+/// @param {string | number | list} $value - значение CSS-свойства
+/// 	из `$property`
+/// @param {list} $prefixes - список браузерных префиксов,
+/// 	которые будут добавлены к CSS-свойству `$property`
+/// @param {boolean} $is-save-origin [true] - параметр отвечает за
+/// 	сохранение CSS-свойства или значения без добавленного
+/// 	браузерного префикса
+@mixin prefixer(
+	$property,
+	$value,
+	$prefixes: (),
+	$is-save-origin: true) {
+
+	// С помощью миксина `add-prefixes` добавляем к CSS-свойству
+	// необходимые браузерные префиксы:
+	@include add-prefixes(
+		$property,
+		$value,
+		$prefixes,
+		$is-save-origin
+	);
+
+}

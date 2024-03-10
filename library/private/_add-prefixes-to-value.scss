@@ -1,0 +1,23 @@
+/// @ignore Миксин `add-prefixes-to-value` не является
+/// 	публичным и используется только в миксине `add-prefixes`!
+/// ---
+/// @name add-prefixes-to-value
+/// @access private
+/// @since 10.03.24
+/// @author Haba Kudzaev (therteenten)
+/// @example scss Пример использования в Sass (SCSS)
+/// 	@include add-prefixes-to-value(property, value, webkit moz);
+/// @output значение CSS-свойства с добавленными браузерными префиксами
+/// @param {string} $property - CSS-свойство, к значению которого
+/// 	будут добавлены браузерные префиксы из списка `$prefixes`
+/// @param {string | number | list} $value - значение CSS-свойства
+/// 	из `$property`, к которому будут добавлены браузерные
+/// 	префиксы
+/// @param {list} $prefixes - список браузерных префиксов,
+/// 	которые будут добавлены к значению `$value`
+/// 	CSS-свойства `$property`
+@mixin add-prefixes-to-value($property, $value, $prefixes) {
+	@each $-prefix in $prefixes {
+		#{$property}: -#{$-prefix}-#{$value};
+	}
+}

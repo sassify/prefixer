@@ -1,0 +1,54 @@
+@use 'private/add-prefixes' as *;
+
+/// Миксин `prefixer-value` позволяет добавить к значению
+/// CSS-свойства необходимые браузерные префиксы.
+/// ---
+/// @name prefixer-value
+/// @access public
+/// @since 10.03.24
+/// @author Haba Kudzaev (therteenten)
+/// @example scss Пример использования в Sass (SCSS)
+/// 	@use 'node_modules/@sassify/prefixer' as sassify;
+///
+/// 	.class {
+/// 		@include sassify.prefixer-value(
+/// 			property,
+/// 			value,
+/// 			webkit moz
+/// 		);
+/// 	}
+/// @example css Результат компиляции Sass в CSS
+/// 	.class {
+/// 		property: -webkit-value;
+/// 		property: -moz-value;
+/// 		property: value;
+/// 	}
+/// @output CSS-свойства с добавленными браузерными префиксами к значениям
+/// @param {string} $property - CSS-свойство, к значению которого
+/// 	будут добавлены браузерные префиксы из списка `$prefixes`
+/// @param {string | number | list} $value - значение CSS-свойства
+/// 	из `$property`, к которому будут добавлены браузерные
+/// 	префиксы
+/// @param {list} $prefixes - список браузерных префиксов,
+/// 	которые будут добавлены к значению `$value`
+/// 	CSS-свойства `$property`
+/// @param {boolean} $is-save-origin [true] - параметр отвечает за
+/// 	сохранение CSS-свойства или значения без добавленного
+/// 	браузерного префикса
+@mixin prefixer-value(
+	$property,
+	$value,
+	$prefixes: (),
+	$is-save-origin: true) {
+
+	// С помощью миксина `add-prefixes` добавляем к CSS-свойству
+	// необходимые браузерные префиксы:
+	@include add-prefixes(
+		$property,
+		$value,
+		$prefixes,
+		$is-save-origin,
+		true
+	);
+
+}

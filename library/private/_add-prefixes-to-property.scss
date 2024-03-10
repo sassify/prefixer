@@ -1,0 +1,21 @@
+/// @ignore Миксин `add-prefixes-to-property` не является
+/// 	публичным и используется только в миксине `add-prefixes`!
+/// ---
+/// @name add-prefixes-to-property
+/// @access private
+/// @since 10.03.24
+/// @author Haba Kudzaev (therteenten)
+/// @example scss Пример использования в Sass (SCSS)
+/// 	@include add-prefixes-to-property(border-radius, 8px, webkit moz);
+/// @output CSS-свойства с добавленными браузерными префиксами
+/// @param {string} $property - CSS-свойство, к которому
+/// 	будут добавлены браузерные префиксы из списка `$prefixes`
+/// @param {string | number | list} $value - значение CSS-свойства
+/// 	из `$property`
+/// @param {list} $prefixes - список браузерных префиксов,
+/// 	которые будут добавлены к CSS-свойству `$property`
+@mixin add-prefixes-to-property($property, $value, $prefixes) {
+	@each $-prefix in $prefixes {
+		-#{$-prefix}-#{$property}: #{$value};
+	}
+}

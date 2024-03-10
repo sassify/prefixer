@@ -1,0 +1,40 @@
+@use '../index.scss' as sassify;
+
+// Prefixer
+.card {
+	color: #212121;
+	background: #fff;
+
+	@include sassify.prefixer(
+		box-shadow,
+		rgba(149, 157, 165, 0.2) 0px 8px 24px,
+		webkit moz
+	);
+
+}
+
+.example {
+	@include sassify.prefixer(
+		transform,
+		rotate(30deg),
+		webkit ms
+	);
+}
+
+// Prefixer (value)
+.example {
+	@include sassify.prefixer-value(
+		prop,
+		value,
+		webkit moz
+	);
+}
+
+// Prefixer (all)
+.example {
+	@include sassify.prefixer(
+		prop,
+		value,
+		'all'
+	);
+}

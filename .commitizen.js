@@ -18,7 +18,7 @@ module.exports = {
 
 	// области, к которым привязаны изменения в коммите
 	scopes: [
-		{ name: 'functions' },
+		{ name: 'mixins' },
 		{ name: 'config' },
 		{ name: 'utils' },
 		{ name: 'docs' }
@@ -48,5 +48,5 @@ module.exports = {
 	allowBreakingChanges: false, // запрещаем BREAKING CHANGES
 	footerPrefix: 'META: ', // префикс для футера коммита
 	subjectLimit: 72 // ширина строки
-	
+
 };
