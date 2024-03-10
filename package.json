@@ -13,7 +13,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/sassify/type-of.git"
+		"url": "git+https://github.com/sassify/prefixer.git"
 	},
 	"keywords": [
 		"sassify",
@@ -26,14 +26,14 @@
 		"scss-functions",
 		"scss-library",
 		"dart-sass",
-		"type-of"
+		"prefixer"
 	],
 	"author": "Haba Kudzaev (therteenten)",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/sassify/type-of/issues"
+		"url": "https://github.com/sassify/prefixer/issues"
 	},
-	"homepage": "https://github.com/sassify/type-of#readme",
+	"homepage": "https://github.com/sassify/prefixer#readme",
 	"config": {
 		"commitizen": {
 			"path": "node_modules/cz-customizable"
