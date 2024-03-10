@@ -1,0 +1,9 @@
+.github/
+.vscode/
+node_modules/
+test/
+.editorconfig
+.gitignore
+.npmignore
+.commitizen.js
+.commitlint.js

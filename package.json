@@ -1,0 +1,58 @@
+{
+  "name": "@sassify/prefixer",
+  "version": "1.0.0",
+  "description": "Набор миксинов на языке CSS-препроцессора Sass для генерации CSS-свойств с необходимыми браузерными префиксами",
+  "main": "index.scss",
+	"scripts": {
+		"start": "npm run test",
+		"serve": "npx sass test/index.scss:test/index.css --no-source-map --watch",
+		"test": "npx sass test/index.scss:test/index.css --no-source-map",
+		"publish": "npm publish --access public",
+		"docs": "npx sassdoc . -d docs/",
+		"commit": "git cz"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/sassify/type-of.git"
+	},
+	"keywords": [
+		"sassify",
+		"sass",
+		"sass-mixins",
+		"sass-functions",
+		"sass-library",
+		"scss",
+		"scss-mixins",
+		"scss-functions",
+		"scss-library",
+		"dart-sass",
+		"type-of"
+	],
+	"author": "Haba Kudzaev (therteenten)",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/sassify/type-of/issues"
+	},
+	"homepage": "https://github.com/sassify/type-of#readme",
+	"config": {
+		"commitizen": {
+			"path": "node_modules/cz-customizable"
+		},
+		"cz-customizable": {
+			"config": ".commitizen.js"
+		}
+	},
+	"husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS -g '.commitlint.js'"
+    }
+  },
+	"dependencies": {
+		"sass": "^1.71.1"
+	},
+	"devDependencies": {
+		"@commitlint/cli": "^19.0.3",
+		"cz-customizable": "^7.0.0",
+		"husky": "^9.0.11"
+	}
+}
