@@ -53,7 +53,7 @@ npm install --save-dev @sassify/prefixer
 }
 ```
 
-> Весь код Sassify Prefixer задокументирован с помощью комментариев SassDoc. Документация доступна по [этой](https://sassify.github.io/prefixer/) ссылке.
+> Весь код Sassify Prefixer задокументирован с помощью комментариев SassDoc. Документация доступна по [этой](https://sassify.github.io/prefixer/) ссылке. Также вы можете прочитать немного про [API Sassify Prefixer](./API.md).
 
 ## Сообщество
 У проекта Sassify нет какого-либо сервера в Discord, но есть Telegram &mdash; [@sassify](https://t.me/sassify).
