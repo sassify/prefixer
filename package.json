@@ -1,6 +1,6 @@
 {
   "name": "@sassify/prefixer",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "Набор миксинов на языке CSS-препроцессора Sass для генерации CSS-свойств с необходимыми браузерными префиксами",
   "main": "index.scss",
 	"scripts": {
