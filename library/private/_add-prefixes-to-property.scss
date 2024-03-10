@@ -2,8 +2,8 @@
 /// 	публичным и используется только в миксине `add-prefixes`!
 /// ---
 /// @name add-prefixes-to-property
-/// @access private
 /// @since 10.03.24
+/// @access private
 /// @author Haba Kudzaev (therteenten)
 /// @example scss Пример использования в Sass (SCSS)
 /// 	@include add-prefixes-to-property(border-radius, 8px, webkit moz);
